@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio · Webs para negocios locales</title>
+<meta name="description" content="Ejemplos de webs comerciales para negocios locales: diseño moderno, responsive y orientado a conseguir clientes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{--tinta:#111827;--gris:#6b7280;--fondo:#f8fafc;--linea:#e5e7eb;--azul:#2563eb}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:var(--fondo);color:var(--tinta);line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:80px 24px}
+  h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;letter-spacing:-.03em;max-width:20ch}
+  .lead{color:var(--gris);font-size:1.15rem;margin:20px 0 56px;max-width:52ch}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+  a.card{
+    display:block;background:#fff;border:1px solid var(--linea);border-radius:18px;
+    padding:34px 30px;text-decoration:none;color:inherit;
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+  a.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(37,99,235,.35)}
+  .card .tipo{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--azul)}
+  .card h2{font-size:1.5rem;font-weight:800;margin:10px 0 8px;letter-spacing:-.02em}
+  .card p{color:var(--gris);font-size:.98rem}
+  .card .ver{display:inline-block;margin-top:18px;font-weight:600;color:var(--azul)}
+  footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--linea);color:var(--gris);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Webs que consiguen clientes para negocios locales</h1>
+  <p class="lead">Diseño moderno, responsive y pensado para vender: cada web incluye reserva o contacto directo por WhatsApp, prueba social y llamadas a la acción claras. Estos son ejemplos de demostración.</p>
+  <div class="grid">
+    <a class="card" href="clinica-dental-sonria.html">
+      <span class="tipo">Salud · Clínica dental</span>
+      <h2>Clínica Dental Sonría</h2>
+      <p>Landing con cita por WhatsApp, prueba social y catálogo de tratamientos. Estética limpia y de confianza.</p>
+      <span class="ver">Ver demo →</span>
+    </a>
+    <a class="card" href="gimnasio-forja.html">
+      <span class="tipo">Deporte · Gimnasio</span>
+      <h2>Forja Gym</h2>
+      <p>Web de alta conversión con tarifas, contadores animados y captación de "semana gratis" vía WhatsApp.</p>
+      <span class="ver">Ver demo →</span>
+    </a>
+  </div>
+  <footer>Ejemplos de demostración con negocios ficticios · Hecho en Alcoy</footer>
+</div>
+</body>
+</html>

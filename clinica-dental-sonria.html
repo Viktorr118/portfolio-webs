@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Dental Sonría · Alcoy — Tu sonrisa en las mejores manos</title>
+<meta name="description" content="Clínica dental en Alcoy. Primera visita y revisión gratuitas. Odontología general, estética dental, implantes y ortodoncia invisible. Pide cita por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde:#0f766e;
+    --verde-osc:#0b544e;
+    --verde-claro:#5eead4;
+    --menta:#ecfdf5;
+    --tinta:#0f2b28;
+    --gris:#4b5563;
+    --linea:#e2e8e6;
+    --blanco:#ffffff;
+    --sombra:0 18px 40px -18px rgba(15,118,110,.35);
+    --radio:20px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--tinta);
+    background:var(--blanco);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;line-height:1.1;letter-spacing:-.02em}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--verde);color:#fff;font-weight:600;
+    padding:15px 30px;border-radius:999px;font-size:1rem;
+    box-shadow:var(--sombra);transition:transform .2s ease,background .2s ease;
+    cursor:pointer;border:none;
+  }
+  .btn:hover{transform:translateY(-2px);background:var(--verde-osc)}
+  .btn-ghost{background:transparent;color:var(--verde);box-shadow:none;border:1.5px solid var(--verde)}
+  .btn-ghost:hover{background:var(--menta)}
+  .eyebrow{
+    display:inline-block;font-weight:600;font-size:.8rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--verde);background:var(--menta);
+    padding:7px 16px;border-radius:999px;margin-bottom:20px;
+  }
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--linea);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.35rem;color:var(--verde)}
+  .logo span{color:var(--verde-claro)}
+  .nav-links{display:flex;gap:32px;align-items:center;font-weight:500;font-size:.95rem}
+  .nav-links a:hover{color:var(--verde)}
+  .nav-cta{padding:10px 22px;font-size:.9rem}
+  @media(max-width:820px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--menta) 0%,#fff 60%)}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:88px 24px 96px}
+  .hero h1{font-size:clamp(2.5rem,5vw,3.9rem);font-weight:600}
+  .hero p.lead{font-size:1.2rem;color:var(--gris);margin:24px 0 34px;max-width:34ch}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+  .hero-trust{margin-top:34px;display:flex;align-items:center;gap:14px;color:var(--gris);font-size:.95rem}
+  .stars{color:#f59e0b;letter-spacing:2px;font-size:1.05rem}
+  .hero-img{
+    position:relative;border-radius:28px;overflow:hidden;box-shadow:var(--sombra);
+    aspect-ratio:4/5;background:url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+    display:flex;align-items:flex-end;padding:30px;
+  }
+  .hero-img::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(11,84,78,.45))}
+  .hero-img .hero-badge{position:relative}
+  .hero-badge{
+    background:rgba(255,255,255,.95);border-radius:16px;padding:18px 22px;
+    box-shadow:0 10px 30px -10px rgba(0,0,0,.3);
+  }
+  .hero-badge b{font-family:'Fraunces',serif;font-size:1.6rem;color:var(--verde);display:block}
+  .hero-badge small{color:var(--gris)}
+  @media(max-width:820px){.hero .wrap{grid-template-columns:1fr;gap:36px;padding:56px 24px 64px}.hero-img{aspect-ratio:16/12}}
+
+  /* SECCIÓN genérica */
+  section.pad{padding:88px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 56px}
+  .sec-head h2{font-size:clamp(2rem,3.5vw,2.7rem);font-weight:600}
+  .sec-head p{color:var(--gris);font-size:1.1rem;margin-top:16px}
+
+  /* BENEFICIOS */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  @media(max-width:820px){.grid-3{grid-template-columns:1fr}}
+  .card{
+    background:#fff;border:1px solid var(--linea);border-radius:var(--radio);
+    padding:34px 30px;transition:transform .25s ease,box-shadow .25s ease;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:var(--sombra)}
+  .card .ic{
+    width:52px;height:52px;border-radius:14px;background:var(--menta);
+    display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px;
+  }
+  .card h3{font-size:1.3rem;margin-bottom:10px}
+  .card p{color:var(--gris)}
+
+  /* PRUEBA SOCIAL - números */
+  .stats{background:var(--verde);color:#fff;border-radius:28px;padding:52px 40px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+  .stats .n{font-family:'Fraunces',serif;font-size:2.7rem;font-weight:600;color:var(--verde-claro)}
+  .stats .l{opacity:.9;font-size:.95rem;margin-top:4px}
+  @media(max-width:820px){.stats{grid-template-columns:repeat(2,1fr);gap:32px 20px}}
+
+  /* SERVICIOS */
+  .serv{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  @media(max-width:820px){.serv{grid-template-columns:1fr}}
+  .serv-item{
+    display:flex;gap:20px;padding:28px;border-radius:var(--radio);
+    background:var(--menta);border:1px solid #d7f3ec;
+  }
+  .serv-item .ic{font-size:1.9rem;line-height:1}
+  .serv-item h3{font-size:1.2rem;margin-bottom:6px}
+  .serv-item p{color:var(--gris);font-size:.97rem}
+  .serv-item .precio{color:var(--verde);font-weight:600;margin-top:8px;display:inline-block}
+
+  /* TESTIMONIOS */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:820px){.quotes{grid-template-columns:1fr}}
+  .quote{background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:30px}
+  .quote .stars{margin-bottom:14px}
+  .quote p{font-size:1.02rem;margin-bottom:20px}
+  .quote .who{display:flex;align-items:center;gap:12px}
+  .quote .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--verde),var(--verde-claro));
+    display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+  .quote .who b{display:block;font-size:.95rem}
+  .quote .who small{color:var(--gris)}
+
+  /* SOBRE NOSOTROS */
+  .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+  @media(max-width:820px){.about{grid-template-columns:1fr;gap:36px}}
+  .about-img{border-radius:28px;aspect-ratio:1/1;box-shadow:var(--sombra);position:relative;overflow:hidden;
+    background:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+    display:flex;align-items:flex-end;padding:28px}
+  .about-img::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(15,43,40,.5))}
+  .about-img .tag{position:relative}
+  .about-img .tag{background:rgba(255,255,255,.95);border-radius:14px;padding:14px 18px;font-size:.9rem}
+  .about h2{font-size:clamp(1.9rem,3.3vw,2.5rem);font-weight:600;margin-bottom:18px}
+  .about p{color:var(--gris);margin-bottom:16px}
+  .about ul{list-style:none;margin-top:22px;display:grid;gap:12px}
+  .about li{display:flex;gap:12px;align-items:center;font-weight:500}
+  .about li::before{content:"✓";color:var(--verde);font-weight:700}
+
+  /* CTA + CONTACTO */
+  .contact{background:linear-gradient(160deg,var(--verde) 0%,var(--verde-osc) 100%);color:#fff;border-radius:32px;
+    padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  @media(max-width:820px){.contact{grid-template-columns:1fr;padding:40px 28px;gap:32px}}
+  .contact h2{font-size:clamp(2rem,3.5vw,2.6rem);font-weight:600;margin-bottom:16px}
+  .contact p{opacity:.92;margin-bottom:14px}
+  .contact .info{display:grid;gap:12px;margin-top:24px;font-size:1.02rem}
+  .contact .info a{display:flex;align-items:center;gap:12px;opacity:.95}
+  .contact .info a:hover{color:var(--verde-claro)}
+  form{background:#fff;border-radius:22px;padding:30px;display:grid;gap:14px}
+  form label{color:var(--tinta);font-size:.85rem;font-weight:600}
+  form input,form textarea{
+    width:100%;padding:13px 15px;border:1px solid var(--linea);border-radius:12px;
+    font-family:inherit;font-size:.98rem;color:var(--tinta);
+  }
+  form input:focus,form textarea:focus{outline:2px solid var(--verde-claro);border-color:transparent}
+  form .btn{justify-content:center;width:100%}
+  form small{color:var(--gris);font-size:.78rem;text-align:center}
+
+  /* FOOTER */
+  footer{background:var(--tinta);color:#cbd5d1;padding:56px 0 30px;margin-top:88px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:40px}
+  @media(max-width:820px){.foot-grid{grid-template-columns:1fr;gap:28px}}
+  footer .logo{color:#fff}
+  footer h4{color:#fff;font-family:'Inter',sans-serif;font-size:.95rem;margin-bottom:14px;letter-spacing:.02em}
+  footer a{display:block;color:#cbd5d1;padding:4px 0;font-size:.95rem}
+  footer a:hover{color:var(--verde-claro)}
+  .foot-bottom{border-top:1px solid #223b37;padding-top:22px;display:flex;justify-content:space-between;
+    flex-wrap:wrap;gap:12px;font-size:.85rem;color:#8ba39d}
+  .socials{display:flex;gap:14px}
+  .socials a{background:#1c332f;width:38px;height:38px;border-radius:10px;display:flex;
+    align-items:center;justify-content:center;padding:0}
+
+  /* WHATSAPP flotante */
+  .wa{position:fixed;right:22px;bottom:22px;z-index:60;background:#25D366;color:#fff;
+    width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 30px -6px rgba(37,211,102,.6);transition:transform .2s ease}
+  .wa:hover{transform:scale(1.08)}
+  .wa svg{width:32px;height:32px}
+
+  /* Animación scroll */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.show{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">Sonría<span>·</span></a>
+    <div class="nav-links">
+      <a href="#beneficios">Por qué nosotros</a>
+      <a href="#servicios">Tratamientos</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#contacto" class="btn nav-cta">Pedir cita</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Clínica dental en Alcoy</span>
+      <h1>Tu sonrisa, en las mejores manos de Alcoy</h1>
+      <p class="lead">Odontología cercana y sin sorpresas. Primera visita, revisión y presupuesto <strong>gratis</strong> — sin compromiso.</p>
+      <div class="hero-cta">
+        <a href="#contacto" class="btn">Reservar mi cita gratis</a>
+        <a href="#servicios" class="btn btn-ghost">Ver tratamientos</a>
+      </div>
+      <div class="hero-trust">
+        <span class="stars">★★★★★</span>
+        <span><strong>4,9/5</strong> · +320 opiniones en Google</span>
+      </div>
+    </div>
+    <div class="hero-img reveal">
+      <div class="hero-badge">
+        <b>+18 años</b>
+        <small>cuidando sonrisas en la comarca</small>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- BENEFICIOS -->
+<section class="pad" id="beneficios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Ir al dentista no tiene por qué dar miedo</h2>
+      <p>Diseñamos cada visita para que salgas tranquilo, informado y sin sustos en la factura.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="ic">💶</div>
+        <h3>Presupuesto cerrado</h3>
+        <p>Sabes lo que vas a pagar antes de empezar. Sin costes ocultos y con financiación hasta en 24 meses sin intereses.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic">🦷</div>
+        <h3>Sin dolor, de verdad</h3>
+        <p>Técnicas mínimamente invasivas y anestesia de última generación. La mayoría de pacientes no siente nada.</p>
+      </div>
+      <div class="card reveal">
+        <div class="ic">⏱️</div>
+        <h3>Cita en 24-48 h</h3>
+        <p>¿Urgencia? Te vemos el mismo día. Horario de mañana y tarde, también algunos sábados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRUEBA SOCIAL -->
+<section class="pad" style="padding-top:0" id="numeros">
+  <div class="wrap reveal">
+    <div class="stats">
+      <div><div class="n">+12.000</div><div class="l">pacientes atendidos</div></div>
+      <div><div class="n">18</div><div class="l">años en Alcoy</div></div>
+      <div><div class="n">4,9★</div><div class="l">valoración en Google</div></div>
+      <div><div class="n">98%</div><div class="l">nos recomiendan</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="pad" style="background:linear-gradient(180deg,#fff,var(--menta))" id="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Tratamientos para toda la familia</h2>
+      <p>Desde la revisión de tus hijos hasta el implante que llevas años posponiendo.</p>
+    </div>
+    <div class="serv">
+      <div class="serv-item reveal">
+        <div class="ic">🪥</div>
+        <div>
+          <h3>Odontología general</h3>
+          <p>Revisiones, limpiezas, empastes y cuidado preventivo para mantener tu boca sana todo el año.</p>
+          <span class="precio">Revisión gratis</span>
+        </div>
+      </div>
+      <div class="serv-item reveal">
+        <div class="ic">✨</div>
+        <div>
+          <h3>Estética dental</h3>
+          <p>Blanqueamiento, carillas y diseño de sonrisa para que vuelvas a reír sin pensártelo.</p>
+          <span class="precio">Desde 190 €</span>
+        </div>
+      </div>
+      <div class="serv-item reveal">
+        <div class="ic">🦷</div>
+        <div>
+          <h3>Implantes dentales</h3>
+          <p>Recupera dientes fijos y la seguridad de morder con normalidad. Garantía por escrito.</p>
+          <span class="precio">Estudio gratuito</span>
+        </div>
+      </div>
+      <div class="serv-item reveal">
+        <div class="ic">😁</div>
+        <div>
+          <h3>Ortodoncia invisible</h3>
+          <p>Alinea tus dientes sin que se note, con férulas transparentes cómodas y quitables.</p>
+          <span class="precio">Desde 49 €/mes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="pad" id="opiniones">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Lo que dicen nuestros pacientes</h2>
+      <p>Opiniones reales verificadas en Google.</p>
+    </div>
+    <div class="quotes">
+      <div class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Le tenía pánico al dentista y aquí me han tratado con una paciencia increíble. Por fin sonrío sin taparme la boca."</p>
+        <div class="who"><div class="av">MC</div><div><b>María Cerdà</b><small>Alcoy</small></div></div>
+      </div>
+      <div class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Me pusieron dos implantes y el presupuesto fue exactamente el que me dijeron. Trato de 10 y sin dolor."</p>
+        <div class="who"><div class="av">JB</div><div><b>Jordi Blanes</b><small>Cocentaina</small></div></div>
+      </div>
+      <div class="quote reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Llevo a toda la familia. Con los niños son geniales y siempre encuentran hueco cuando hay una urgencia."</p>
+        <div class="who"><div class="av">LT</div><div><b>Laura Torró</b><small>Alcoy</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE NOSOTROS -->
+<section class="pad" style="background:var(--menta)" id="nosotros">
+  <div class="wrap">
+    <div class="about">
+      <div class="about-img reveal">
+        <div class="tag">👩‍⚕️ Dra. Ana Pastor · Directora médica</div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Sobre nosotros</span>
+        <h2>Una clínica de barrio con tecnología de hospital</h2>
+        <p>Somos un equipo de 8 profesionales que llevamos desde 2007 cuidando las sonrisas de Alcoy y su comarca. Empezamos con un solo sillón y hoy atendemos a más de 12.000 pacientes, pero seguimos tratándote como el primer día: por tu nombre.</p>
+        <p>Invertimos en la mejor tecnología (escáner 3D, radiografía digital de baja radiación) porque creemos que la tranquilidad se construye con información clara y trato honesto.</p>
+        <ul>
+          <li>Equipo colegiado y en formación continua</li>
+          <li>Materiales con garantía y trazabilidad</li>
+          <li>Cumplimiento estricto de protocolos sanitarios</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL + CONTACTO -->
+<section class="pad" id="contacto">
+  <div class="wrap reveal">
+    <div class="contact">
+      <div>
+        <h2>Pide tu cita gratis hoy</h2>
+        <p>Cuéntanos qué necesitas y te llamamos para buscar el hueco que mejor te venga. Sin compromiso.</p>
+        <div class="info">
+          <a href="https://wa.me/34600123456" target="_blank" rel="noopener">💬 WhatsApp: 600 123 456</a>
+          <a href="tel:+34965123456">📞 965 123 456</a>
+          <a href="https://maps.google.com/?q=Alcoy" target="_blank" rel="noopener">📍 C/ Sant Nicolau 12, 03801 Alcoy</a>
+          <a>🕘 Lun–Vie 9:00–20:00 · Sáb 9:00–13:00</a>
+        </div>
+      </div>
+      <form onsubmit="enviar(event)">
+        <div>
+          <label for="n">Nombre</label>
+          <input id="n" type="text" placeholder="Tu nombre" required>
+        </div>
+        <div>
+          <label for="t">Teléfono</label>
+          <input id="t" type="tel" placeholder="600 000 000" required>
+        </div>
+        <div>
+          <label for="m">¿Qué necesitas?</label>
+          <textarea id="m" rows="3" placeholder="Ej: revisión, presupuesto de implante..."></textarea>
+        </div>
+        <button class="btn" type="submit">Solicitar cita gratis</button>
+        <small>Te contactamos en menos de 24 h laborables.</small>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo">Sonría·</div>
+        <p style="margin-top:12px;max-width:34ch">Clínica dental en Alcoy. Cuidamos la sonrisa de tu familia desde 2007.</p>
+        <div class="socials" style="margin-top:18px">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Facebook">👍</a>
+          <a href="https://wa.me/34600123456" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div>
+        <h4>Clínica</h4>
+        <a href="#servicios">Tratamientos</a>
+        <a href="#nosotros">Sobre nosotros</a>
+        <a href="#opiniones">Opiniones</a>
+        <a href="#contacto">Pedir cita</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="tel:+34965123456">965 123 456</a>
+        <a href="https://wa.me/34600123456">600 123 456</a>
+        <a>C/ Sant Nicolau 12, Alcoy</a>
+        <a>Lun–Sáb</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Clínica Dental Sonría · CIF B-00000000</span>
+      <span>Aviso legal · Política de privacidad · Cookies</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a class="wa" href="https://wa.me/34600123456?text=Hola,%20quiero%20pedir%20cita" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.4.7 4.6 1.9 6.5L4 29l7.2-1.9c1.8 1 3.8 1.5 5.8 1.5 7 0 12.5-5.5 12.5-12.5S23 3 16 3zm0 22.7c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.3 1.1 1.1-4.2-.2-.4a10 10 0 01-1.6-5.6C5.6 9.7 10.2 5.3 16 5.3c5.6 0 10.2 4.4 10.2 10.2S21.8 25.7 16 25.7zm5.7-7.6c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6.1a8.3 8.3 0 01-2.4-1.5 9 9 0 01-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4a3.3 3.3 0 00-1 2.4c0 1.4 1 2.8 1.2 3 .1.2 2 3.1 5 4.3 2.5 1 3 .8 3.5.8.6 0 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4l-.6-.2z"/></svg>
+</a>
+
+<script>
+  // Animación de aparición al hacer scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Envío de formulario (demo) -> abre WhatsApp con los datos
+  function enviar(e){
+    e.preventDefault();
+    const n=document.getElementById('n').value;
+    const t=document.getElementById('t').value;
+    const m=document.getElementById('m').value;
+    const txt=encodeURIComponent(`Hola, soy ${n} (tel: ${t}). ${m||'Quiero pedir cita.'}`);
+    window.open('https://wa.me/34600123456?text='+txt,'_blank');
+  }
+</script>
+</body>
+</html>
