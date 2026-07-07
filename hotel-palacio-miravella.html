@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palacio Miravella · Gran Hotel & Spa 5★ en Mallorca — Desde 1928</title>
+<meta name="description" content="Palacio Miravella, gran hotel de 5 estrellas en la Serra de Tramuntana, Mallorca. 42 suites, restaurante con estrella Michelin y spa entre jardines centenarios. Desde 1928.">
+<meta property="og:title" content="Palacio Miravella · Gran Hotel & Spa — Mallorca">
+<meta property="og:description" content="El arte de habitar la calma. 42 suites, gastronomía con estrella Michelin y spa entre jardines centenarios frente al Mediterráneo.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Hotel","name":"Palacio Miravella","description":"Gran hotel de 5 estrellas en la Serra de Tramuntana, Mallorca.","starRating":{"@type":"Rating","ratingValue":"5"},"address":{"@type":"PostalAddress","addressLocality":"Deià","addressRegion":"Mallorca","addressCountry":"ES"},"telephone":"+34 971 000 000"}
+</script>
+<style>
+  :root{
+    --marfil:#F4EFE5;
+    --marfil-2:#ECE5D6;
+    --carbon:#141210;
+    --carbon-2:#1C1916;
+    --oro:#A98E5D;
+    --oro-claro:#D6C29A;
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Jost',system-ui,sans-serif;
+    --ease:cubic-bezier(.23,1,.32,1);
+    /* Tema claro por defecto */
+    --bg:var(--marfil);
+    --fg:var(--carbon);
+    --muted:#7B7261;
+    --linea:rgba(20,18,16,.16);
+  }
+  .dark{
+    --bg:var(--carbon);
+    --fg:var(--marfil);
+    --muted:#948A72;
+    --linea:rgba(244,239,229,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:auto}
+  body{
+    font-family:var(--sans);font-weight:300;color:var(--fg);background:var(--bg);
+    line-height:1.75;font-size:1.02rem;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* Grano de película sobre toda la página */
+  body::after{
+    content:"";position:fixed;inset:0;z-index:300;pointer-events:none;opacity:.04;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+  }
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.06;text-wrap:balance}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  ::selection{background:var(--oro);color:var(--carbon)}
+  :focus-visible{outline:2px solid var(--oro);outline-offset:3px}
+  section{scroll-margin-top:70px}
+
+  .wrap{max-width:1280px;margin:0 auto;padding-inline:clamp(22px,5vw,64px)}
+  .seccion{padding-block:clamp(6rem,14vh,11rem);background:var(--bg);color:var(--fg)}
+
+  .eyebrow{
+    display:flex;align-items:center;gap:14px;
+    font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--oro);font-weight:400;margin-bottom:clamp(1.6rem,4vh,2.8rem);
+  }
+  .eyebrow::after{content:"";height:1px;width:56px;background:var(--oro);opacity:.6}
+
+  .titulo{
+    font-size:clamp(2.6rem,6vw,5.2rem);letter-spacing:-.01em;
+  }
+  .titulo em{font-style:italic;font-weight:300;color:var(--oro)}
+
+  .line{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+  .line-inner{display:block;will-change:transform}
+
+  .rule{height:1px;background:var(--linea);transform-origin:left center}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:12px;
+    font-family:var(--sans);font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--carbon);background:var(--oro);border:1px solid var(--oro);
+    padding:18px 40px;cursor:pointer;
+    transition:background .5s var(--ease),color .5s var(--ease);
+  }
+  .btn.fantasma{background:transparent;color:var(--fg);border-color:var(--linea)}
+  @media(hover:hover) and (pointer:fine){
+    .btn:hover{background:var(--oro-claro)}
+    .btn.fantasma:hover{border-color:var(--oro);color:var(--oro)}
+  }
+
+  /* ── Preloader ─────────────────────────────── */
+  .preloader{
+    position:fixed;inset:0;z-index:400;background:var(--carbon);color:var(--marfil);
+    display:flex;align-items:flex-end;justify-content:space-between;
+    padding:clamp(24px,5vh,48px) clamp(24px,5vw,64px);
+  }
+  .preloader-marca{font-family:var(--serif);font-size:1rem;letter-spacing:.4em;text-transform:uppercase;opacity:.7}
+  .preloader-num{
+    font-family:var(--serif);font-weight:300;line-height:.9;
+    font-size:clamp(4.5rem,11vw,10rem);font-variant-numeric:tabular-nums;
+  }
+  noscript ~ .preloader,.no-js .preloader{display:none}
+
+  /* ── Cursor personalizado ──────────────────── */
+  .cursor{
+    position:fixed;top:0;left:0;z-index:500;pointer-events:none;
+    width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;
+    background:var(--oro);mix-blend-mode:difference;
+    display:none;
+  }
+  .cursor-aro{
+    position:fixed;top:0;left:0;z-index:500;pointer-events:none;
+    width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;
+    border:1px solid var(--oro);opacity:.55;
+    display:none;align-items:center;justify-content:center;
+    transition:width .5s var(--ease),height .5s var(--ease),margin .5s var(--ease),background .5s var(--ease);
+    font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:transparent;
+  }
+  .cursor-aro.grande{
+    width:96px;height:96px;margin:-48px 0 0 -48px;
+    background:rgba(169,142,93,.92);border-color:transparent;opacity:1;color:var(--carbon);
+  }
+  body.cursor-activo{cursor:none}
+  body.cursor-activo a,body.cursor-activo button{cursor:none}
+  body.cursor-activo .cursor,body.cursor-activo .cursor-aro{display:flex}
+
+  /* ── Header ────────────────────────────────── */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:120;
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    padding:22px clamp(22px,5vw,64px);color:var(--marfil);
+    transition:transform .7s var(--ease),background .5s ease,padding .5s ease;
+  }
+  header.solido{background:rgba(20,18,16,.82);backdrop-filter:blur(14px);padding-block:14px}
+  header.oculto{transform:translateY(-100%)}
+  .marca{
+    justify-self:center;font-family:var(--serif);font-size:1.25rem;
+    letter-spacing:.42em;text-transform:uppercase;font-weight:500;
+  }
+  .btn-menu{
+    justify-self:start;display:flex;align-items:center;gap:12px;background:none;border:none;
+    color:inherit;font-family:var(--sans);font-size:.72rem;letter-spacing:.3em;
+    text-transform:uppercase;cursor:pointer;padding:8px 0;
+  }
+  .btn-menu .rayas{display:flex;flex-direction:column;gap:5px;width:26px}
+  .btn-menu .rayas span{height:1px;background:currentColor;transition:transform .5s var(--ease),width .5s var(--ease)}
+  .btn-menu:hover .rayas span:last-child{width:60%}
+  .header-reserva{
+    justify-self:end;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;
+    border-bottom:1px solid var(--oro);padding-bottom:4px;
+  }
+
+  /* ── Menú overlay ──────────────────────────── */
+  .menu{
+    position:fixed;inset:0;z-index:200;background:var(--carbon-2);color:var(--marfil);
+    clip-path:inset(0 0 100% 0);visibility:hidden;
+    display:grid;grid-template-columns:1.4fr 1fr;align-items:center;
+    padding:clamp(24px,6vw,80px);gap:40px;
+  }
+  .menu-links{display:flex;flex-direction:column;gap:.4em}
+  .menu-links a{
+    font-family:var(--serif);font-size:clamp(2.4rem,6vw,4.6rem);font-weight:300;line-height:1.15;
+    display:flex;align-items:baseline;gap:22px;transition:opacity .4s ease;
+  }
+  .menu-links a small{font-family:var(--sans);font-size:.68rem;letter-spacing:.3em;color:var(--oro)}
+  .menu-links:hover a{opacity:.35}
+  .menu-links a:hover{opacity:1}
+  .menu-info{font-size:.9rem;color:var(--muted);display:flex;flex-direction:column;gap:26px;border-left:1px solid var(--linea);padding-left:40px}
+  .menu-info strong{display:block;font-weight:400;color:var(--marfil);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:8px}
+  .menu-cerrar{
+    position:absolute;top:26px;right:clamp(22px,5vw,64px);background:none;border:none;color:var(--marfil);
+    font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;padding:8px 0;
+    border-bottom:1px solid var(--oro);
+  }
+  @media(max-width:820px){
+    .menu{grid-template-columns:1fr}
+    .menu-info{border-left:none;padding-left:0;border-top:1px solid var(--linea);padding-top:30px}
+  }
+
+  /* ── Hero ──────────────────────────────────── */
+  .hero{position:relative;height:100svh;min-height:640px;overflow:hidden;color:var(--marfil)}
+  .hero-bg{position:absolute;inset:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}
+  .hero-velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,16,.42) 0%,rgba(20,18,16,.18) 45%,rgba(20,18,16,.62) 100%)}
+  .hero-contenido{
+    position:relative;z-index:2;height:100%;display:flex;flex-direction:column;
+    justify-content:flex-end;padding:0 clamp(22px,5vw,64px) clamp(120px,18vh,170px);
+  }
+  .hero-meta{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--oro-claro);margin-bottom:22px}
+  .hero-titulo{font-size:clamp(3.2rem,8.6vw,7.6rem);font-weight:300;letter-spacing:-.01em}
+  .hero-titulo em{font-style:italic;color:var(--oro-claro)}
+  .hero-scroll{
+    position:absolute;right:clamp(22px,5vw,64px);bottom:clamp(120px,18vh,170px);z-index:2;
+    display:flex;flex-direction:column;align-items:center;gap:14px;
+    font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--oro-claro);
+    writing-mode:vertical-rl;
+  }
+  .hero-scroll::after{
+    content:"";width:1px;height:64px;background:linear-gradient(var(--oro-claro),transparent);
+    animation:gotea 2.6s var(--ease) infinite;
+  }
+  @keyframes gotea{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+  /* Barra de reserva */
+  .reserva{
+    position:absolute;left:0;right:0;bottom:0;z-index:3;
+    background:rgba(20,18,16,.72);backdrop-filter:blur(16px);
+    border-top:1px solid rgba(214,194,154,.25);
+  }
+  .reserva form{
+    max-width:1280px;margin:0 auto;padding:0 clamp(22px,5vw,64px);
+    display:grid;grid-template-columns:1fr 1fr 1fr auto;align-items:stretch;
+  }
+  .reserva label{
+    display:flex;flex-direction:column;gap:4px;padding:18px 26px 16px 0;
+    border-right:1px solid rgba(214,194,154,.18);margin-right:26px;
+    font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--oro-claro);
+  }
+  .reserva input,.reserva select{
+    background:none;border:none;color:var(--marfil);font-family:var(--serif);
+    font-size:1.15rem;outline:none;color-scheme:dark;
+  }
+  .reserva .btn{align-self:center;white-space:nowrap}
+  @media(max-width:900px){.reserva{display:none}}
+
+  /* CTA fija en móvil */
+  .cta-movil{
+    position:fixed;left:16px;right:16px;bottom:16px;z-index:150;
+    display:none;justify-content:center;
+    transform:translateY(120%);transition:transform .6s var(--ease);
+  }
+  .cta-movil.visible{transform:translateY(0)}
+  .cta-movil .btn{width:100%;justify-content:center}
+  @media(max-width:900px){.cta-movil{display:flex}}
+
+  /* ── Manifiesto ────────────────────────────── */
+  .manifiesto p.grande{
+    font-family:var(--serif);font-size:clamp(1.55rem,4vw,3.4rem);line-height:1.3;
+    max-width:22ch;font-weight:300;
+  }
+  .manifiesto p.grande em{font-style:italic;color:var(--oro)}
+  @media(max-width:560px){.manifiesto p.grande{max-width:none;font-size:1.45rem}}
+  .manifiesto-pie{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:40px;
+    margin-top:clamp(4rem,9vh,7rem);padding-top:clamp(2.5rem,5vh,4rem);
+  }
+  .dato .num{
+    font-family:var(--serif);font-size:clamp(2.6rem,5vw,4rem);font-weight:300;line-height:1;
+    font-variant-numeric:tabular-nums;
+  }
+  .dato .num small{font-size:.45em;color:var(--oro)}
+  .dato p{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+
+  /* ── Suites (scroll horizontal) ────────────── */
+  .suites{overflow:hidden}
+  .suites-cabecera{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:clamp(3rem,7vh,5rem)}
+  .suites-track{display:flex;gap:clamp(24px,3vw,48px);padding-left:clamp(22px,5vw,64px);width:max-content}
+  .suite{width:clamp(300px,38vw,560px);flex-shrink:0}
+  .suite .img-marco{aspect-ratio:4/5;overflow:hidden;position:relative}
+  .suite img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+  @media(hover:hover){.suite:hover img{transform:scale(1.06)}}
+  .suite-info{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:22px}
+  .suite h3{font-size:clamp(1.5rem,2.2vw,2rem);font-weight:400}
+  .suite .m2{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .suite .precio{font-family:var(--serif);font-size:1.1rem;color:var(--oro-claro);white-space:nowrap}
+  .suite-num{font-size:.72rem;letter-spacing:.3em;color:var(--oro);display:block;margin-bottom:14px}
+  @media(max-width:767px){
+    .suites-track{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;padding-right:22px;
+      -webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .suites-track::-webkit-scrollbar{display:none}
+    .suite{scroll-snap-align:start;width:82vw}
+  }
+
+  /* ── Gastronomía ───────────────────────────── */
+  .gastro-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,6vw,90px);align-items:center}
+  .gastro-texto p{max-width:44ch;color:var(--muted);margin-top:24px}
+  .gastro-texto .titulo{font-size:clamp(2.4rem,4.6vw,4.2rem)}
+  .parallax{overflow:hidden;position:relative}
+  .parallax img{height:120%;width:100%;object-fit:cover}
+  .gastro-img-1{aspect-ratio:3/4}
+  .gastro-img-2{aspect-ratio:1/1;width:min(46%,300px);margin-top:-22%;margin-left:8%;position:relative;z-index:2;
+    box-shadow:0 40px 80px -30px rgba(20,18,16,.5)}
+  .michelin{display:flex;align-items:center;gap:14px;margin-top:38px;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--oro)}
+  .michelin svg{flex-shrink:0}
+  @media(max-width:820px){.gastro-grid{grid-template-columns:1fr}}
+
+  /* ── Spa / experiencias ────────────────────── */
+  .exp-lista{display:flex;flex-direction:column}
+  .exp{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(20px,4vw,60px);
+    padding:clamp(28px,4.5vh,44px) 0;border-top:1px solid var(--linea);position:relative;
+  }
+  .exp:last-child{border-bottom:1px solid var(--linea)}
+  .exp-num{font-family:var(--serif);font-style:italic;color:var(--oro);font-size:1.1rem;width:2.4em}
+  .exp h3{font-size:clamp(1.7rem,3.4vw,2.8rem);font-weight:400;transition:color .5s ease,transform .7s var(--ease)}
+  .exp p{color:var(--muted);font-size:.92rem;max-width:36ch;text-align:right}
+  @media(hover:hover){
+    .exp:hover h3{color:var(--oro);transform:translateX(14px)}
+  }
+  .exp-foto{
+    position:fixed;z-index:90;width:300px;aspect-ratio:4/5;pointer-events:none;
+    object-fit:cover;opacity:0;transform:scale(.9);display:none;
+  }
+  @media(max-width:820px){.exp{grid-template-columns:auto 1fr}.exp p{display:none}}
+
+  /* ── Cita ──────────────────────────────────── */
+  .cita{text-align:center}
+  .cita blockquote{
+    font-family:var(--serif);font-weight:300;font-style:italic;
+    font-size:clamp(2rem,5vw,4.2rem);line-height:1.25;max-width:24ch;margin:0 auto;
+  }
+  .cita cite{
+    display:block;font-family:var(--sans);font-style:normal;font-size:.72rem;
+    letter-spacing:.32em;text-transform:uppercase;color:var(--oro);margin-top:40px;
+  }
+
+  /* ── Marquee ───────────────────────────────── */
+  .marquee{overflow:hidden;padding-block:clamp(2rem,5vh,4rem);border-block:1px solid var(--linea)}
+  .marquee-pista{display:flex;width:max-content;animation:marquesina 46s linear infinite}
+  .marquee span{
+    font-family:var(--serif);font-weight:300;font-size:clamp(3rem,7vw,6rem);
+    white-space:nowrap;padding-right:.6em;opacity:.16;
+  }
+  .marquee span i{font-style:italic;color:var(--oro)}
+  @keyframes marquesina{to{transform:translateX(-50%)}}
+
+  /* ── Ubicación ─────────────────────────────── */
+  .ubicacion-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,90px);align-items:end}
+  .ubicacion-img{aspect-ratio:16/10}
+  .ubicacion dl{display:grid;grid-template-columns:auto 1fr;gap:12px 30px;margin-top:34px;font-size:.95rem}
+  .ubicacion dt{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--oro);padding-top:5px}
+  .ubicacion dd{color:var(--muted)}
+  @media(max-width:820px){.ubicacion-grid{grid-template-columns:1fr}}
+
+  /* ── Footer ────────────────────────────────── */
+  footer{background:var(--carbon);color:var(--marfil);padding:clamp(5rem,10vh,8rem) 0 40px;overflow:hidden}
+  .footer-cta{text-align:center;margin-bottom:clamp(4rem,9vh,7rem)}
+  .footer-cta h2{font-size:clamp(2.2rem,4.6vw,4rem);font-weight:300;margin-bottom:36px}
+  .footer-cta h2 em{font-style:italic;color:var(--oro-claro)}
+  .footer-cols{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;
+    padding-block:44px;border-block:1px solid rgba(244,239,229,.14);
+    font-size:.9rem;color:#948A72;
+  }
+  .footer-cols strong{display:block;font-weight:400;color:var(--marfil);font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:16px}
+  .footer-cols a{display:block;padding-block:3px;transition:color .3s}
+  .footer-cols a:hover{color:var(--oro-claro)}
+  .footer-nombre{
+    font-family:var(--serif);font-weight:300;text-transform:uppercase;text-align:center;
+    font-size:clamp(2.6rem,10.5vw,10rem);letter-spacing:.12em;line-height:1;
+    margin-top:60px;color:transparent;-webkit-text-stroke:1px rgba(214,194,154,.4);
+  }
+  .footer-legal{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:44px;font-size:.72rem;letter-spacing:.14em;color:#6E6552}
+
+  @media (prefers-reduced-motion: reduce){
+    .preloader{display:none}
+    .marquee-pista{animation:none}
+    .hero-bg img{transform:none}
+    .hero-scroll::after{animation:none}
+    *{transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+
+<!-- Preloader -->
+<div class="preloader" aria-hidden="true">
+  <span class="preloader-marca">Palacio Miravella</span>
+  <span class="preloader-num">0</span>
+</div>
+
+<!-- Cursor -->
+<div class="cursor" aria-hidden="true"></div>
+<div class="cursor-aro" aria-hidden="true">Ver</div>
+
+<header>
+  <button class="btn-menu" aria-label="Abrir menú" aria-expanded="false">
+    <span class="rayas"><span></span><span></span></span>
+    <span class="btn-menu-texto">Menú</span>
+  </button>
+  <a class="marca" href="#inicio">Miravella</a>
+  <a class="header-reserva" href="#reservar">Reservar</a>
+</header>
+
+<!-- Menú overlay -->
+<nav class="menu" aria-hidden="true">
+  <button class="menu-cerrar">Cerrar</button>
+  <div class="menu-links">
+    <a href="#palacio"><small>01</small><span class="line"><span class="line-inner">El Palacio</span></span></a>
+    <a href="#suites"><small>02</small><span class="line"><span class="line-inner">Suites</span></span></a>
+    <a href="#gastronomia"><small>03</small><span class="line"><span class="line-inner">Gastronomía</span></span></a>
+    <a href="#spa"><small>04</small><span class="line"><span class="line-inner">Spa & Bienestar</span></span></a>
+    <a href="#ubicacion"><small>05</small><span class="line"><span class="line-inner">Ubicación</span></span></a>
+  </div>
+  <div class="menu-info">
+    <div><strong>Reservas</strong>+34 971 000 000<br>reservas@palaciomiravella.com</div>
+    <div><strong>Dirección</strong>Camí de Sa Vinya, s/n<br>07179 Deià · Mallorca</div>
+    <div><strong>Síganos</strong>Instagram — Pinterest</div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="inicio">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2000&auto=format&fit=crop" alt="Piscina del Palacio Miravella al atardecer, rodeada de arquitectura mediterránea" fetchpriority="high">
+  </div>
+  <div class="hero-velo"></div>
+  <div class="hero-contenido">
+    <p class="hero-meta">Deià · Mallorca — Desde 1928</p>
+    <h1 class="hero-titulo">
+      <span class="line"><span class="line-inner">El arte de habitar</span></span>
+      <span class="line"><span class="line-inner"><em>la calma</em></span></span>
+    </h1>
+  </div>
+  <p class="hero-scroll" aria-hidden="true">Descubra</p>
+
+  <div class="reserva" id="reservar">
+    <form onsubmit="return false">
+      <label>Llegada <input type="date" aria-label="Fecha de llegada"></label>
+      <label>Salida <input type="date" aria-label="Fecha de salida"></label>
+      <label>Huéspedes
+        <select aria-label="Número de huéspedes">
+          <option>2 adultos</option><option>1 adulto</option><option>2 adultos, 1 niño</option><option>Familia</option>
+        </select>
+      </label>
+      <button class="btn magnetico" type="submit">Comprobar disponibilidad</button>
+    </form>
+  </div>
+</section>
+
+<div class="cta-movil"><a class="btn" href="#reservar-footer">Reservar estancia</a></div>
+
+<!-- Manifiesto -->
+<section class="seccion manifiesto" id="palacio">
+  <div class="wrap">
+    <p class="eyebrow">01 — El Palacio</p>
+    <p class="grande reveal-lines">
+      <span class="line"><span class="line-inner">Un palacio de 1928 suspendido</span></span>
+      <span class="line"><span class="line-inner">entre la Tramuntana y el mar,</span></span>
+      <span class="line"><span class="line-inner">donde el tiempo <em>aprende a esperar</em>.</span></span>
+    </p>
+    <div class="rule" style="margin-top:clamp(4rem,9vh,7rem)"></div>
+    <div class="manifiesto-pie">
+      <div class="dato"><div class="num" data-count="1928">1928</div><p>Año de fundación</p></div>
+      <div class="dato"><div class="num" data-count="42">42</div><p>Suites y villas</p></div>
+      <div class="dato"><div class="num"><span data-count="1">1</span><small>★</small></div><p>Estrella Michelin</p></div>
+      <div class="dato"><div class="num" data-count="5">5</div><p>Hectáreas de jardines</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Suites -->
+<section class="seccion dark suites" id="suites">
+  <div class="wrap suites-cabecera">
+    <div>
+      <p class="eyebrow">02 — Suites</p>
+      <h2 class="titulo reveal-lines">
+        <span class="line"><span class="line-inner">Habitaciones que</span></span>
+        <span class="line"><span class="line-inner">miran <em>al horizonte</em></span></span>
+      </h2>
+    </div>
+    <a class="btn fantasma magnetico" href="#reservar-footer">Ver todas</a>
+  </div>
+  <div class="suites-track">
+    <article class="suite">
+      <span class="suite-num">Nº 01</span>
+      <div class="img-marco reveal-img" data-cursor="ver">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1400&auto=format&fit=crop" alt="Suite Jardín con cama con dosel y luz natural">
+      </div>
+      <div class="suite-info">
+        <div><h3>Suite Jardín</h3><p class="m2">55 m² · Terraza privada</p></div>
+        <p class="precio">desde 480 €</p>
+      </div>
+    </article>
+    <article class="suite">
+      <span class="suite-num">Nº 02</span>
+      <div class="img-marco reveal-img" data-cursor="ver">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=1400&auto=format&fit=crop" alt="Suite Mirador con vistas al Mediterráneo">
+      </div>
+      <div class="suite-info">
+        <div><h3>Suite Mirador</h3><p class="m2">72 m² · Vistas al mar</p></div>
+        <p class="precio">desde 690 €</p>
+      </div>
+    </article>
+    <article class="suite">
+      <span class="suite-num">Nº 03</span>
+      <div class="img-marco reveal-img" data-cursor="ver">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=1400&auto=format&fit=crop" alt="Ático Miravella con salón privado en tonos cálidos">
+      </div>
+      <div class="suite-info">
+        <div><h3>Ático Miravella</h3><p class="m2">120 m² · Piscina propia</p></div>
+        <p class="precio">desde 1.150 €</p>
+      </div>
+    </article>
+    <article class="suite">
+      <span class="suite-num">Nº 04</span>
+      <div class="img-marco reveal-img" data-cursor="ver">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1400&auto=format&fit=crop" alt="Villa del Mar, dormitorio principal con vestidor">
+      </div>
+      <div class="suite-info">
+        <div><h3>Villa del Mar</h3><p class="m2">210 m² · Acceso a la cala</p></div>
+        <p class="precio">desde 2.400 €</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Gastronomía -->
+<section class="seccion" id="gastronomia">
+  <div class="wrap gastro-grid">
+    <div>
+      <div class="parallax gastro-img-1 reveal-img">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1400&auto=format&fit=crop" alt="Sala del restaurante Almadraba iluminada con velas">
+      </div>
+      <div class="parallax gastro-img-2 reveal-img">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=900&auto=format&fit=crop" alt="Plato de temporada del restaurante Almadraba">
+      </div>
+    </div>
+    <div class="gastro-texto">
+      <p class="eyebrow">03 — Gastronomía</p>
+      <h2 class="titulo reveal-lines">
+        <span class="line"><span class="line-inner">Almadraba,</span></span>
+        <span class="line"><span class="line-inner">memoria <em>del mar</em></span></span>
+      </h2>
+      <p>La cocina del chef Andreu Ferrà traduce la despensa balear en un menú que cambia con la marea: gamba roja de Sóller, cordero de la sierra, aceite de nuestros olivos centenarios.</p>
+      <p>Doce mesas. Un solo servicio. El tiempo que cada plato necesita.</p>
+      <p class="michelin">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2l-6.1 3.4 1.4-6.8L2.2 9.1l6.9-.8L12 2z" fill="currentColor"/></svg>
+        Una estrella Michelin · 2024, 2025, 2026
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Spa -->
+<section class="seccion dark" id="spa">
+  <div class="wrap">
+    <p class="eyebrow">04 — Spa & Bienestar</p>
+    <h2 class="titulo reveal-lines" style="margin-bottom:clamp(3rem,7vh,5rem)">
+      <span class="line"><span class="line-inner">Rituales para</span></span>
+      <span class="line"><span class="line-inner">volver <em>al cuerpo</em></span></span>
+    </h2>
+    <div class="exp-lista">
+      <article class="exp" data-foto="https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=1000&auto=format&fit=crop">
+        <span class="exp-num">01</span><h3>Piscina interior de agua salada</h3>
+        <p>Veinte metros bajo bóveda de piedra original, a 32 grados todo el año.</p>
+      </article>
+      <article class="exp" data-foto="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1000&auto=format&fit=crop">
+        <span class="exp-num">02</span><h3>Hammam & baños de vapor</h3>
+        <p>Un recorrido de calor, mármol y aceites esenciales de la isla.</p>
+      </article>
+      <article class="exp" data-foto="https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=1000&auto=format&fit=crop">
+        <span class="exp-num">03</span><h3>Rituales de autor</h3>
+        <p>Tratamientos con aceite de oliva, almendra y sal marina de Es Trenc.</p>
+      </article>
+      <article class="exp" data-foto="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1000&auto=format&fit=crop">
+        <span class="exp-num">04</span><h3>Yoga al amanecer</h3>
+        <p>Cada mañana, en la terraza del mirador, frente al despertar del mar.</p>
+      </article>
+    </div>
+  </div>
+  <img class="exp-foto" src="" alt="" aria-hidden="true">
+</section>
+
+<!-- Cita -->
+<section class="seccion cita">
+  <div class="wrap">
+    <blockquote class="reveal-lines">
+      <span class="line"><span class="line-inner">«Quizá el silencio más</span></span>
+      <span class="line"><span class="line-inner">hermoso del Mediterráneo.»</span></span>
+    </blockquote>
+    <cite>Condé Nast Traveler — Gold List 2026</cite>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-pista">
+    <span>Palacio Miravella — <i>Mallorca</i> — Desde 1928 — </span>
+    <span>Palacio Miravella — <i>Mallorca</i> — Desde 1928 — </span>
+  </div>
+</div>
+
+<!-- Ubicación -->
+<section class="seccion ubicacion" id="ubicacion">
+  <div class="wrap ubicacion-grid">
+    <div>
+      <p class="eyebrow">05 — Ubicación</p>
+      <h2 class="titulo reveal-lines">
+        <span class="line"><span class="line-inner">Al final del</span></span>
+        <span class="line"><span class="line-inner">camino <em>de sa Vinya</em></span></span>
+      </h2>
+      <dl>
+        <dt>Dirección</dt><dd>Camí de Sa Vinya, s/n · 07179 Deià, Mallorca</dd>
+        <dt>Aeropuerto</dt><dd>Palma de Mallorca (PMI) — 40 min. Traslado privado disponible.</dd>
+        <dt>Helipuerto</dt><dd>En la propia finca, bajo petición.</dd>
+        <dt>Conserjería</dt><dd>+34 971 000 000 — disponible las 24 horas</dd>
+      </dl>
+    </div>
+    <div class="parallax ubicacion-img reveal-img">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop" alt="Cala de aguas turquesas junto al hotel">
+    </div>
+  </div>
+</section>
+
+<footer id="reservar-footer">
+  <div class="wrap">
+    <div class="footer-cta">
+      <h2 class="reveal-lines">
+        <span class="line"><span class="line-inner">Le esperamos donde</span></span>
+        <span class="line"><span class="line-inner">termina <em>la prisa</em></span></span>
+      </h2>
+      <a class="btn magnetico" href="mailto:reservas@palaciomiravella.com">Reservar estancia</a>
+    </div>
+    <div class="footer-cols">
+      <div><strong>Contacto</strong>+34 971 000 000<br>reservas@palaciomiravella.com</div>
+      <div><strong>Explorar</strong><a href="#palacio">El Palacio</a><a href="#suites">Suites</a><a href="#gastronomia">Gastronomía</a><a href="#spa">Spa & Bienestar</a></div>
+      <div><strong>Información</strong><a href="#">Prensa</a><a href="#">Eventos privados</a><a href="#">Bodas</a><a href="#">Tarjeta regalo</a></div>
+      <div><strong>Boletín</strong>Historias de la casa, una vez al mes.<br><a href="#" style="border-bottom:1px solid var(--oro);color:var(--marfil)">Suscribirse →</a></div>
+    </div>
+    <p class="footer-nombre">Miravella</p>
+    <div class="footer-legal">
+      <span>© 2026 Palacio Miravella · Gran Hotel & Spa</span>
+      <span>Aviso legal · Privacidad · Cookies</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const pre = document.querySelector('.preloader');
+
+  if (!window.gsap || reduceMotion){
+    if (pre) pre.remove();
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+  const EASE = 'power3.out';
+  const EASE_IO = 'power2.inOut';
+
+  /* Smooth scroll */
+  const lenis = new Lenis({ lerp: 0.08, wheelMultiplier: 0.9 });
+  window.lenis = lenis;
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(t => lenis.raf(t * 1000));
+  gsap.ticker.lagSmoothing(0);
+
+  /* Anclas internas por Lenis */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const destino = document.querySelector(a.getAttribute('href'));
+      if (!destino) return;
+      e.preventDefault();
+      cerrarMenu();
+      lenis.scrollTo(destino, { offset: 0, duration: 1.4 });
+    });
+  });
+
+  /* ── Preloader + entrada del hero ── */
+  const num = { v: 0 };
+  const numEl = document.querySelector('.preloader-num');
+  gsap.timeline()
+    .to(num, { v: 100, duration: 1.5, ease: EASE_IO,
+      onUpdate: () => numEl.textContent = Math.round(num.v) })
+    .to(pre, { yPercent: -100, duration: 1, ease: 'power4.inOut',
+      onComplete: () => pre.remove() })
+    .from('.hero-bg img', { scale: 1.28, duration: 2.4, ease: EASE }, '-=1')
+    .from('.hero-titulo .line-inner', { yPercent: 112, duration: 1.2, stagger: 0.14, ease: EASE }, '<+0.2')
+    .from('.hero-meta, .hero-scroll', { opacity: 0, y: 18, duration: 1, ease: EASE }, '-=0.7')
+    .from('.reserva', { yPercent: 100, duration: 1, ease: EASE_IO }, '-=0.9')
+    .from('header', { yPercent: -100, opacity: 0, duration: 0.9, ease: EASE }, '-=0.8');
+
+  /* ── Reveals de titulares por líneas ── */
+  document.querySelectorAll('.reveal-lines').forEach(el => {
+    gsap.from(el.querySelectorAll('.line-inner'), {
+      yPercent: 112, duration: 1.1, stagger: 0.1, ease: EASE,
+      scrollTrigger: { trigger: el, start: 'top 82%' }
+    });
+  });
+
+  /* ── Image reveals: cortina + contra-zoom ── */
+  document.querySelectorAll('.reveal-img').forEach(wrap => {
+    const img = wrap.querySelector('img');
+    gsap.timeline({ scrollTrigger: { trigger: wrap, start: 'top 80%' } })
+      .fromTo(wrap, { clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0% 0)', duration: 1.25, ease: EASE_IO })
+      .fromTo(img, { scale: 1.32 }, { scale: 1, duration: 1.25, ease: EASE_IO }, 0);
+  });
+
+  /* ── Parallax dentro de máscara ── */
+  document.querySelectorAll('.parallax img').forEach(img => {
+    gsap.fromTo(img, { yPercent: -9 }, { yPercent: 9, ease: 'none',
+      scrollTrigger: { trigger: img.closest('.parallax'), scrub: true } });
+  });
+
+  /* ── Líneas separadoras que se dibujan ── */
+  document.querySelectorAll('.rule').forEach(r => {
+    gsap.from(r, { scaleX: 0, duration: 1.4, ease: EASE_IO,
+      scrollTrigger: { trigger: r, start: 'top 88%' } });
+  });
+
+  /* ── Contadores ── */
+  document.querySelectorAll('[data-count]').forEach(el => {
+    gsap.fromTo(el, { textContent: 0 }, {
+      textContent: +el.dataset.count, duration: 1.8, ease: 'power2.out',
+      snap: { textContent: 1 },
+      scrollTrigger: { trigger: el, start: 'top 86%' }
+    });
+  });
+
+  /* ── Suites: scroll horizontal pineado (solo escritorio) ── */
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 768px)', () => {
+    const track = document.querySelector('.suites-track');
+    const distancia = () => track.scrollWidth - innerWidth + 64;
+    gsap.to(track, {
+      x: () => -distancia(), ease: 'none',
+      scrollTrigger: {
+        trigger: '.suites', pin: true, scrub: 1,
+        end: () => '+=' + distancia(), invalidateOnRefresh: true
+      }
+    });
+  });
+
+  /* ── Header inteligente ── */
+  const header = document.querySelector('header');
+  let lastY = 0;
+  lenis.on('scroll', ({ scroll }) => {
+    header.classList.toggle('oculto', scroll > lastY && scroll > 500 && !menuAbierto);
+    header.classList.toggle('solido', scroll > 60);
+    document.querySelector('.cta-movil')?.classList.toggle('visible', scroll > 500);
+    lastY = scroll;
+  });
+
+  /* ── Menú overlay ── */
+  const menu = document.querySelector('.menu');
+  const btnMenu = document.querySelector('.btn-menu');
+  let menuAbierto = false;
+  const menuTl = gsap.timeline({ paused: true,
+      onStart: () => { menu.style.visibility = 'visible'; },
+      onReverseComplete: () => { menu.style.visibility = 'hidden'; } })
+    .to(menu, { clipPath: 'inset(0 0 0% 0)', duration: 0.9, ease: 'power4.inOut' })
+    .from('.menu-links .line-inner', { yPercent: 112, stagger: 0.07, duration: 0.9, ease: EASE }, '-=0.35')
+    .from('.menu-info > div', { opacity: 0, y: 20, stagger: 0.08, duration: 0.7, ease: EASE }, '-=0.7');
+
+  function abrirMenu(){ menuAbierto = true; menu.setAttribute('aria-hidden','false');
+    btnMenu.setAttribute('aria-expanded','true'); lenis.stop(); menuTl.timeScale(1).play(); }
+  function cerrarMenu(){ if(!menuAbierto) return; menuAbierto = false;
+    menu.setAttribute('aria-hidden','true'); btnMenu.setAttribute('aria-expanded','false');
+    lenis.start(); menuTl.timeScale(1.4).reverse(); }
+  btnMenu.addEventListener('click', () => menuAbierto ? cerrarMenu() : abrirMenu());
+  document.querySelector('.menu-cerrar').addEventListener('click', cerrarMenu);
+  addEventListener('keydown', e => { if (e.key === 'Escape') cerrarMenu(); });
+
+  /* ── Spa: foto flotante que sigue al ratón ── */
+  if (finePointer){
+    const foto = document.querySelector('.exp-foto');
+    foto.style.display = 'block';
+    document.querySelectorAll('.exp').forEach(exp => {
+      exp.addEventListener('mouseenter', () => {
+        foto.src = exp.dataset.foto;
+        gsap.to(foto, { opacity: 1, scale: 1, duration: 0.6, ease: EASE });
+      });
+      exp.addEventListener('mouseleave', () => {
+        gsap.to(foto, { opacity: 0, scale: 0.9, duration: 0.4, ease: EASE });
+      });
+      exp.addEventListener('mousemove', e => {
+        gsap.to(foto, { left: e.clientX + 40, top: e.clientY - 190, duration: 0.9, ease: EASE });
+      });
+    });
+  }
+
+  /* ── Cursor personalizado + botones magnéticos ── */
+  if (finePointer){
+    document.body.classList.add('cursor-activo');
+    const punto = document.querySelector('.cursor');
+    const aro = document.querySelector('.cursor-aro');
+    let cx = 0, cy = 0, ax = 0, ay = 0, tx = innerWidth/2, ty = innerHeight/2;
+    addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+    gsap.ticker.add(() => {
+      cx += (tx - cx) * 0.35; cy += (ty - cy) * 0.35;
+      ax += (tx - ax) * 0.12; ay += (ty - ay) * 0.12;
+      punto.style.transform = `translate(${cx}px,${cy}px)`;
+      aro.style.transform = `translate(${ax}px,${ay}px)`;
+    });
+    document.querySelectorAll('[data-cursor]').forEach(el => {
+      el.addEventListener('mouseenter', () => aro.classList.add('grande'));
+      el.addEventListener('mouseleave', () => aro.classList.remove('grande'));
+    });
+    document.querySelectorAll('.magnetico').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const r = btn.getBoundingClientRect();
+        gsap.to(btn, { x: (e.clientX - r.left - r.width/2) * 0.3,
+                       y: (e.clientY - r.top - r.height/2) * 0.3, duration: 0.4, ease: EASE });
+      });
+      btn.addEventListener('mouseleave', () =>
+        gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1,0.55)' }));
+    });
+  }
+})();
+</script>
+</body>
+</html>
